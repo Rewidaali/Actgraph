@@ -68,10 +68,20 @@
       align-items: flex-start;
       margin-bottom: 1rem;
     }
+    .actgraph-name {
+      color: #800000;
+      font-weight: 700;
+    }
+    .btn-with-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin: 0.25rem 0.3rem;
+    }
     .coming-soon-tag {
-      font-size: 0.7rem;
-      vertical-align: middle;
-      margin-left: 0.4rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.03em;
     }
     table.results-table th {
       background: #f0f4ff;
@@ -117,7 +127,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-2 publication-title hero-title">
-            ActGraph: Environment-Aware Human Action Perception from Unconstrained Videos via Semantic Scene Graphs for Robot Imitation
+            <span class="actgraph-name">ActGraph</span>: Environment-Aware Human Action Perception from Unconstrained Videos via Semantic Scene Graphs for Robot Imitation
           </h1>
 
           <div class="is-size-5 publication-authors" style="margin-top: 1.5rem;">
@@ -129,47 +139,47 @@
           </div>
 
           <div class="column has-text-centered" style="margin-top: 1.5rem;">
-            <div class="publication-links">
+            <div class="publication-links" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:0.5rem;">
               <!-- PDF -->
-              <span class="link-block">
+              <div class="btn-with-badge">
                 <a class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
                 </a>
                 <span class="tag is-warning is-light coming-soon-tag">Coming Soon</span>
-              </span>
+              </div>
               <!-- arXiv -->
-              <span class="link-block">
+              <div class="btn-with-badge">
                 <a class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
                 <span class="tag is-warning is-light coming-soon-tag">Coming Soon</span>
-              </span>
+              </div>
               <!-- Video -->
-              <span class="link-block">
+              <div class="btn-with-badge">
                 <a class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-youtube"></i></span>
                   <span>Video</span>
                 </a>
                 <span class="tag is-warning is-light coming-soon-tag">Coming Soon</span>
-              </span>
+              </div>
               <!-- Code -->
-              <span class="link-block">
+              <div class="btn-with-badge">
                 <a class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
                 </a>
                 <span class="tag is-warning is-light coming-soon-tag">Coming Soon</span>
-              </span>
+              </div>
               <!-- Dataset -->
-              <span class="link-block">
+              <div class="btn-with-badge">
                 <a class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="far fa-images"></i></span>
                   <span>Dataset</span>
                 </a>
                 <span class="tag is-warning is-light coming-soon-tag">Coming Soon</span>
-              </span>
+              </div>
             </div>
           </div>
 
@@ -186,7 +196,7 @@
     <div class="hero-body has-text-centered">
       <img src="./static/images/teaser.jpg" alt="ActGraph overview figure" style="max-width:100%; border-radius:8px;">
       <h2 class="subtitle has-text-centered" style="margin-top: 1.2rem;">
-        Given a human unscripted video, <strong>ActGraph</strong> extracts keyframes, segmented objects, and a sequence of
+        Given a human unscripted video, <strong class="actgraph-name">ActGraph</strong> extracts keyframes, segmented objects, and a sequence of
         semantic manipulation actions. The framework encodes structural deltas &Delta;<i>S<sub>k</sub></i> between
         consecutive semantic scene graphs and resolves cross-scene object identities via a global registry
         <i>G</i>, enabling consistent object/action tracking across the full video.
