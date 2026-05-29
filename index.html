@@ -3,31 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="ActGraph creates environment-aware human action perception from unconstrained videos via semantic scene graphs for robot imitation.">
+  <meta name="keywords" content="ActGraph, Semantic Scene Graphs, Robot Imitation, Learning from Video, Manipulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ActGraph: Environment-Aware Human Action Perception from Unconstrained Videos via Semantic Scene Graphs for Robot Imitation</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
@@ -36,9 +20,68 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+
+  <style>
+    .hero-title {
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+    .contribution-card {
+      border-left: 4px solid #3273dc;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      background: #f8f9fa;
+      border-radius: 0 6px 6px 0;
+    }
+    .metric-box {
+      background: #3273dc;
+      color: white;
+      border-radius: 8px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+    .metric-box .metric-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .metric-box .metric-label {
+      font-size: 0.85rem;
+      margin-top: 0.4rem;
+      opacity: 0.9;
+    }
+    .stage-badge {
+      background: #3273dc;
+      color: white;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+    .stage-row {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .coming-soon-tag {
+      font-size: 0.7rem;
+      vertical-align: middle;
+      margin-left: 0.4rem;
+    }
+    table.results-table th {
+      background: #f0f4ff;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #e8e8e8;
+      margin: 2rem 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -52,374 +95,435 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
+        <a class="navbar-link">Navigate</a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
+          <a class="navbar-item" href="#abstract">Abstract</a>
+          <a class="navbar-item" href="#contributions">Contributions</a>
+          <a class="navbar-item" href="#method">Method</a>
+          <a class="navbar-item" href="#results">Results</a>
+          <a class="navbar-item" href="#bibtex">BibTeX</a>
         </div>
       </div>
     </div>
-
   </div>
 </nav>
 
 
+<!-- Hero -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">ActGraph: Environment-Aware Human Action Perception from Unconstrained Videos via Semantic Scene Graphs for Robot Imitation</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              Anonymous Authors
-            </span>
+          <h1 class="title is-2 publication-title hero-title">
+            ActGraph: Environment-Aware Human Action Perception from Unconstrained Videos via Semantic Scene Graphs for Robot Imitation
+          </h1>
+
+          <div class="is-size-5 publication-authors" style="margin-top: 1.5rem;">
+            <span class="author-block">Anonymous Author(s)</span>
           </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>The University of Osaka,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+          <div class="is-size-6 publication-authors" style="margin-top: 0.5rem; color: #555;">
+            <span>Submitted to the 10th Conference on Robot Learning (CoRL 2026)</span>
           </div>
 
-          <div class="column has-text-centered">
+          <div class="column has-text-centered" style="margin-top: 1.5rem;">
             <div class="publication-links">
-              <!-- PDF Link. -->
+              <!-- PDF -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
+                <a class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
                 </a>
+                <span class="tag is-warning is-light coming-soon-tag">Coming Soon</span>
               </span>
+              <!-- arXiv -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
+                <a class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
+                <span class="tag is-warning is-light coming-soon-tag">Coming Soon</span>
               </span>
-              <!-- Video Link. -->
+              <!-- Video -->
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
+                <a class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
                   <span>Video</span>
                 </a>
+                <span class="tag is-warning is-light coming-soon-tag">Coming Soon</span>
               </span>
-              <!-- Code Link. -->
+              <!-- Code -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
+                <a class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
-                  </a>
+                </a>
+                <span class="tag is-warning is-light coming-soon-tag">Coming Soon</span>
               </span>
-              <!-- Dataset Link. -->
+              <!-- Dataset -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
+                <a class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-images"></i></span>
+                  <span>Dataset</span>
+                </a>
+                <span class="tag is-warning is-light coming-soon-tag">Coming Soon</span>
+              </span>
             </div>
-
           </div>
+
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
+<!-- Teaser figure -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Actgraph</span> Environment-Aware Human Action Perception 
-        from Unconstrained Videos via 
-        Semantic Scene Graphs for Robot Imitation
+    <div class="hero-body has-text-centered">
+      <img src="./static/images/teaser.png" alt="ActGraph overview figure" style="max-width:100%; border-radius:8px;">
+      <h2 class="subtitle has-text-centered" style="margin-top: 1.2rem;">
+        Given a human unscripted video, <strong>ActGraph</strong> extracts keyframes, segmented objects, and a sequence of
+        semantic manipulation actions. The framework encodes structural deltas &Delta;<i>S<sub>k</sub></i> between
+        consecutive semantic scene graphs and resolves cross-scene object identities via a global registry
+        <i>G</i>, enabling consistent object/action tracking across the full video.
       </h2>
     </div>
   </div>
 </section>
 
 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
+<!-- Abstract -->
+<section class="section" id="abstract">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Translating raw human videos into structured, robot-executable manipulation knowledge is a fundamental challenge in embodied intelligence.          </p>
-          <p>
-            Understanding manipulation skills from unstructured videos is a fundamental challenge for enabling autonomous system design. Existing approaches rely on low-level visual features or language descriptions, often lacking temporal consistency and robustness to viewpoint changes. We propose a semantic-consistent perception framework that transforms raw human videos into structured representations: keyframes, object-centric scene graphs, and semantic action sequences. The framework maintains object identities consistently under camera motion and scene transitions. Its scene graphs evolve over time and explicitly encode spatial and interaction relationships, enabling robust skill extraction. We evaluated the method on 5 complex, multi-view, unconstrained manipulation recordings; the structured outputs supported downstream task understanding by generating executable manipulation behaviors consistent with the original human videos.
+            Understanding manipulation skills from unstructured videos is a fundamental challenge for enabling
+            autonomous system design. Existing approaches rely on low-level visual features or language descriptions,
+            often lacking temporal consistency and robustness to viewpoint changes.
           </p>
           <p>
-            We show that <span class="dnerf">ActGraph</span> can turn casually captured human
-            videos into structured, robot-executable manipulation knowledge that allows for
-            environment-aware action perception. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            We propose a semantic-consistent perception framework that transforms raw human videos into structured
+            representations: keyframes, object-centric scene graphs, and semantic action sequences. The framework
+            maintains object identities consistently under camera motion and scene transitions. Its scene graphs
+            evolve over time and explicitly encode spatial and interaction relationships, enabling robust skill
+            extraction.
+          </p>
+          <p>
+            We evaluated the method on 5 complex, multi-view, unconstrained manipulation recordings; the structured
+            outputs supported downstream task understanding by generating executable manipulation behaviors
+            consistent with the original human videos.
+          </p>
+          <p>
+            <strong>Keywords:</strong> Robot Manipulation Perception &bull; Learning from Human Video &bull;
+            Unscripted Video Understanding
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
 
-<section class="section">
+<!-- Key metrics -->
+<section class="section" style="background: #f8f9fa; padding: 3rem 1.5rem;">
   <div class="container is-max-desktop">
-
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Key Results</h2>
     <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
+      <div class="column is-2 has-text-centered">
+        <div class="metric-box">
+          <div class="metric-value">84.9%</div>
+          <div class="metric-label">Keyframe F1<br>(Assembly101)</div>
         </div>
       </div>
-      <!--/ Visual Effects. -->
+      <div class="column is-2 has-text-centered">
+        <div class="metric-box" style="background: #00b4d8;">
+          <div class="metric-value">95.2%</div>
+          <div class="metric-label">Cross-Scene Object Matching Accuracy</div>
+        </div>
+      </div>
+      <div class="column is-2 has-text-centered">
+        <div class="metric-box" style="background: #06d6a0;">
+          <div class="metric-value">91.4%</div>
+          <div class="metric-label">Verb Accuracy<br>(Assembly101)</div>
+        </div>
+      </div>
+      <div class="column is-2 has-text-centered">
+        <div class="metric-box" style="background: #ef476f;">
+          <div class="metric-value">100%</div>
+          <div class="metric-label">Task Completion in Real-Robot Trials</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
+
+<!-- Contributions -->
+<section class="section" id="contributions">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Contributions</h2>
+    <div class="content">
+
+      <div class="contribution-card">
+        <strong>Industrial video event understanding</strong> — A rule-based keyframe selector over
+        VLM-derived frame attributes reliably detects manipulation events despite camera and appearance
+        changes, achieving an <strong>84.9% F1 score</strong> for keyframe recognition on Assembly101.
+      </div>
+
+      <div class="contribution-card">
+        <strong>Cross-scene object grounding</strong> — A confidence-gated hybrid of visual and
+        VLM-based matching preserves object identity across scene boundaries with
+        <strong>95.2% accuracy</strong>.
+      </div>
+
+      <div class="contribution-card">
+        <strong>SSG-grounded chain-of-thought (SSG-CoT) action extraction</strong> — Conditions VLM
+        reasoning on scene-graph structure for coherent action sequences, improving action understanding
+        quality with <strong>91.4% verb accuracy</strong> and <strong>76.8% full-tuple accuracy</strong>
+        on Assembly101.
+      </div>
+
+      <div class="contribution-card">
+        <strong>Multi-scene manipulation video dataset</strong> — Full SSG, keyframe, and action
+        annotations for systematic evaluation of cross-scene perception across 5 industrial
+        demonstration videos.
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Method -->
+<section class="section" id="method" style="background: #f8f9fa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <p class="has-text-centered" style="margin-bottom: 2rem; color: #555;">
+      ActGraph is a modular four-stage pipeline for extracting grounded action sequences from human demonstration videos.
+    </p>
+
+    <!-- Pipeline figure -->
+    <div class="has-text-centered" style="margin-bottom: 2rem;">
+      <img src="./static/images/pipeline.png" alt="ActGraph pipeline figure" style="max-width:100%; border-radius:8px;">
+    </div>
+
+    <div class="columns is-multiline">
+      <div class="column is-6">
+        <div class="stage-row">
+          <span class="stage-badge">1</span>
+          <div>
+            <strong>Scene Change Detection</strong>
+            <p style="font-size:0.9rem; margin-top:0.3rem;">
+              Histogram-based Bhattacharyya distance partitions the video into M visually
+              contiguous scenes. Peaks above threshold &tau;<sub>scene</sub> = 0.35 mark scene boundaries,
+              preventing cross-scene identity fragmentation.
             </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
           </div>
-
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="stage-row">
+          <span class="stage-badge">2</span>
+          <div>
+            <strong>VLM-Based Keyframe Extraction</strong>
+            <p style="font-size:0.9rem; margin-top:0.3rem;">
+              Frames sampled at 5 FPS are encoded with a Swin Transformer. Qwen2.5-VL is queried
+              with a structured prompt; cross-modal attention identifies action, hand state, and
+              object-contact changes to select semantically significant keyframes.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="stage-row">
+          <span class="stage-badge">3</span>
+          <div>
+            <strong>SSG-Based Action Recognition</strong>
+            <p style="font-size:0.9rem; margin-top:0.3rem;">
+              A Semantic Scene Graph S<sub>k</sub> = (O<sub>k</sub>, R<sub>k</sub>) is built per keyframe
+              using GroundingDINO + SAM2. Structural deltas &Delta;S<sub>k</sub> between consecutive graphs
+              drive verb-inference rules and LLM-decoded action tuples
+              &langle;verb, agent, patient, target, tool&rangle;.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-6">
+        <div class="stage-row">
+          <span class="stage-badge">4</span>
+          <div>
+            <strong>Cross-Scene Object Matching</strong>
+            <p style="font-size:0.9rem; margin-top:0.3rem;">
+              A confidence-gated tiered strategy combines 256-D ReID visual embeddings with class,
+              temporal, and context bonuses. Ambiguous matches invoke VLM semantic verification,
+              populating a global registry G with consistent object identities across all scenes.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <!--/ Matting. -->
+  </div>
+</section>
 
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
 
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
+<!-- Results -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Experimental Results</h2>
 
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
+    <!-- Keyframe & SSG eval -->
+    <h3 class="title is-4">Keyframe &amp; Scene-Graph Evaluation (Assembly101)</h3>
+    <p style="margin-bottom:1rem;">
+      We benchmark on 50 manually annotated clips from Assembly101 covering assembly, pick-and-place,
+      and object arrangement tasks.
+    </p>
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-fullwidth results-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>ActGraph</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Keyframe Precision</td><td><strong>87.3%</strong></td></tr>
+          <tr><td>Keyframe Recall</td><td><strong>82.6%</strong></td></tr>
+          <tr><td>Keyframe F1</td><td><strong>84.9%</strong></td></tr>
+          <tr><td>Node Accuracy (Objects)</td><td><strong>89.2%</strong></td></tr>
+          <tr><td>Edge Accuracy (Relations)</td><td><strong>78.5%</strong></td></tr>
+          <tr><td>Verb Accuracy</td><td><strong>91.4%</strong></td></tr>
+          <tr><td>Full-Tuple Accuracy</td><td><strong>76.8%</strong></td></tr>
+        </tbody>
+      </table>
     </div>
-    <!--/ Animation. -->
 
+    <hr class="section-divider">
 
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
+    <!-- Baseline comparison -->
+    <h3 class="title is-4">Baseline Comparison — Pick-and-Place + E-Stop Task</h3>
+    <p style="margin-bottom:1rem;">
+      Evaluated on a 6-action, 2-subtask scenario (pick-and-place + E-stop press) against two recent
+      video-to-action methods.
+    </p>
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-fullwidth results-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>LfD4hri</th>
+            <th>SeeDo</th>
+            <th>ActGraph (Ours)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Actions Detected</td>
+            <td>1</td><td>4</td>
+            <td><strong>6</strong></td>
+          </tr>
+          <tr>
+            <td>Action Recall</td>
+            <td>16.7%</td><td>66.7%</td>
+            <td><strong>100%</strong></td>
+          </tr>
+          <tr>
+            <td>Objects Detected</td>
+            <td>2</td><td>4</td>
+            <td><strong>6</strong></td>
+          </tr>
+          <tr>
+            <td>Object Recall</td>
+            <td>33.3%</td><td>66.7%</td>
+            <td><strong>100%</strong></td>
+          </tr>
+          <tr>
+            <td>E-Stop Detected</td>
+            <td>&#10007;</td><td>&#10007;</td>
+            <td><strong>&#10003;</strong></td>
+          </tr>
+          <tr>
+            <td>Task Coverage</td>
+            <td>50%</td><td>67%</td>
+            <td><strong>100%</strong></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <!--/ Concurrent Work. -->
+
+    <hr class="section-divider">
+
+    <!-- Ablation -->
+    <h3 class="title is-4">Ablation: Impact of SSG Reasoning</h3>
+    <p style="margin-bottom:1rem;">
+      Comparing the full method (with SSG) against a variant that processes each keyframe independently
+      with no cross-frame tracking.
+    </p>
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-fullwidth results-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>w/o SSG</th>
+            <th>w/ SSG (Ours)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Object IDs assigned (ground truth: 5)</td>
+            <td>20</td><td><strong>5</strong></td>
+          </tr>
+          <tr>
+            <td>Cross-frame object continuity</td>
+            <td>0%</td><td><strong>100%</strong></td>
+          </tr>
+          <tr>
+            <td>Cross-scene matching accuracy</td>
+            <td>—</td><td><strong>95.2%</strong></td>
+          </tr>
+          <tr>
+            <td>Robot task completion (6 steps)</td>
+            <td>1/6 (16.7%)</td><td><strong>6/6 (100%)</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- End-to-end -->
+    <h3 class="title is-4">End-to-End System Validation</h3>
+    <div class="content has-text-justified">
+      <p>
+        We validate ActGraph end-to-end from video perception through simulation to real-world execution.
+        Extracted action sequences are translated into a simulation with a Franka robot and executed using
+        predefined primitives (PICK, PLACE, PRESS). On a physical Franka Research 3 arm replicating the
+        pick-and-place + E-stop scenario, the robot successfully executed the full action sequence.
+        Closed-loop validation — comparing the semantic action sequence extracted from the robot execution
+        against the original human demonstration — achieved an <strong>87% match</strong>, demonstrating
+        successful preservation of manipulation semantics across human-to-robot transfer.
+      </p>
+    </div>
 
   </div>
 </section>
 
 
-<section class="section" id="BibTeX">
+<!-- BibTeX -->
+<section class="section" id="bibtex">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
+    <pre><code>@article{actgraph2026,
   author    = {Anonymous},
-  title     = {ActGraph: Environment-Aware Human Action Perception from Unconstrained Videos via Semantic Scene Graphs for Robot Imitation},
-  journal   = {CORL},
+  title     = {ActGraph: Environment-Aware Human Action Perception from
+               Unconstrained Videos via Semantic Scene Graphs for Robot Imitation},
+  journal   = {CoRL},
   year      = {2026},
 }</code></pre>
   </div>
@@ -428,29 +532,17 @@
 
 <footer class="footer">
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
     <div class="columns is-centered">
       <div class="column is-8">
-        <div class="content">
+        <div class="content has-text-centered">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This website is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+              Creative Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+          <p style="font-size: 0.85rem; color: #888;">
+            Website template adapted from
+            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
           </p>
         </div>
       </div>
